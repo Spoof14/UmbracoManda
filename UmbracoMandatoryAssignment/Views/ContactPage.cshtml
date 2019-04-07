@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ContactPage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+<h2>@CurrentPage.Name</h2>
+
+@if (TempData["success"] == null) {
+    <div>
+        @Html.Action("Index", "ContactFormSurface")
+    </div>
+}else{
+    <p>Thank you for contacting us. We’ll be in touch soon!</p>
+}
+
+    
+    

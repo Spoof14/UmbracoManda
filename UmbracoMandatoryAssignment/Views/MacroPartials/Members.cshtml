@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web
+@using Newtonsoft.Json;
+@using Umbraco.Web.Models;
+
+
+@*
+    This snippet makes a list of links to the of children of the current page using an unordered HTML list.
+
+    How it works:
+    - It uses the Children method to get all child pages
+    - It then generates links so the visitor can go to each page
+*@
+
+@{
+	var memberService= ApplicationContext.Current.Services.MemberService;
+	var members= memberService.GetMembersByGroup("Active");
+}
+<ul>
+	@foreach(var member in members){
+	    
+	<p>
+	    @member.Name <br>
+	    @member.GetValue("address") <br>
+	    @member.GetValue("zip") @member.GetValue("city") <br>
+	    @member.Email <br>
+	   
+	  @if(member.GetValue("photo") != null) {
+	    string image = member.GetValue<string>("photo");
+	    if(image != null) {
+	        ImageCropDataSet imageCrop= JsonConvert.DeserializeObject<ImageCropDataSet>(image);
+	        
+	        <img src=@imageCrop.Src.GetCropUrl(width: 50)/>
+	        
+	        }
+	   }
+	    
+	    
+	</p>
+
+	}
+</ul>
