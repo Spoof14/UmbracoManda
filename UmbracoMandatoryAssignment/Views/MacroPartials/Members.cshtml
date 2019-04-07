@@ -30,7 +30,7 @@
 	    if(image != null) {
 	        ImageCropDataSet imageCrop= JsonConvert.DeserializeObject<ImageCropDataSet>(image);
 	        
-	        <img src=@imageCrop.Src.GetCropUrl(width: 50)/>
+	        <img class="photo" src=@imageCrop.Src.GetCropUrl(width: 50)/>
 	        
 	        }
 	   }

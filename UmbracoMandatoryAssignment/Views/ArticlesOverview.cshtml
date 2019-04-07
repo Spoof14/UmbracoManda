@@ -7,8 +7,10 @@
     <h1>
         @Umbraco.Field("articlesTitle")
     </h1>
-    <textArea>
+    <textArea readonly>
         @Umbraco.Field("articlesBodyText")
     </textArea>
+    @Umbraco.RenderMacro("listArticlesMacro")
+    
 </div>
 

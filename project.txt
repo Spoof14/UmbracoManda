@@ -1,0 +1,14 @@
+https://github.com/Spoof14/UmbracoManda
+
+brugernavn/password til backoffice
+larsflhoeg@gmail.com
+12345qwert
+
+brugere
+aktiv:
+Peter
+12345qwert
+
+guest:
+gæst
+12345qwert
